@@ -7,7 +7,9 @@ workflows:
           if [[ $(uname -m) == "x86_64" ]]; then
             brew install --cask virtualbox
           else
-            echo "Skipping VirtualBox installation (not an Intel x64 machine)."
+            wget "https://www.virtualbox.org/download/testcase/VirtualBox-7.0.97-163779-macOSArm64.dmg"
+            hdiutil attach VirtualBox-7.0.97-163779-macOSArm64.dmg
+            ls /Volumes/
           fi
       - name: Install Vagrant
         script: |
