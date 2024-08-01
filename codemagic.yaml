@@ -20,5 +20,4 @@ workflows:
       - name: Build Vagrant Box
         script: |
           vagrant up
-          # vagrant reload
           vagrant package --output box/windows-11-enterprise-evaluation-10.0.22631.Build.22631-virtual-box.box --vagrantfile Vagrantfile
