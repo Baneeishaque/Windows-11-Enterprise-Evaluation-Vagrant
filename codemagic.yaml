@@ -1,6 +1,7 @@
 workflows:
   build-vagrant-box:
     name: Build Vagrant Box
+    instance_type: mac_mini_m1
     scripts:
       - name: Install VirtualBox (if Intel x64)
         script: |
