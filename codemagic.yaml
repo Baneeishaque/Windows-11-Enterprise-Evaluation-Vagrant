@@ -2,10 +2,6 @@ workflows:
   build-vagrant-box:
     name: Build Vagrant Box
     scripts:
-      - name: Install Vagrant
-        script: |
-          brew tap hashicorp/tap
-          brew install hashicorp/tap/hashicorp-vagrant
       - name: Install VirtualBox (if Intel x64)
         script: |
           if [[ $(uname -m) == "x86_64" ]]; then
@@ -13,5 +9,9 @@ workflows:
           else
             echo "Skipping VirtualBox installation (not an Intel x64 machine)."
           fi
+      - name: Install Vagrant
+        script: |
+          brew tap hashicorp/tap
+          brew install hashicorp/tap/hashicorp-vagrant
       # - vagrant up
       # - vagrant package --output my-box.box
