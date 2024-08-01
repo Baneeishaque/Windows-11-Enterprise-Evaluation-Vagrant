@@ -9,7 +9,9 @@ workflows:
           else
             wget "https://www.virtualbox.org/download/testcase/VirtualBox-7.0.97-163779-macOSArm64.dmg"
             hdiutil attach VirtualBox-7.0.97-163779-macOSArm64.dmg
-            ls /Volumes/
+            # ls /Volumes/
+            sudo installer -package /Volumes/VirtualBox/VirtualBox.pkg -target /
+            hdiutil detach /Volumes/VirtualBox
           fi
       - name: Install Vagrant
         script: |
