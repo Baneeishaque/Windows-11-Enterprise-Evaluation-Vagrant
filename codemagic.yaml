@@ -6,7 +6,12 @@ workflows:
         script: |
           brew tap hashicorp/tap
           brew install hashicorp/tap/hashicorp-vagrant
-      - name: Install VirtualBox
-        script: brew install --cask virtualbox
+      - name: Install VirtualBox (if Intel x64)
+        script: |
+          if [[ $(uname -m) == "x86_64" ]]; then
+            brew install --cask virtualbox
+          else
+            echo "Skipping VirtualBox installation (not an Intel x64 machine)."
+          fi
       # - vagrant up
       # - vagrant package --output my-box.box
