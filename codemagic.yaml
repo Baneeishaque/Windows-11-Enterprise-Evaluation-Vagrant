@@ -3,7 +3,7 @@ workflows:
     name: Build Vagrant Box
     instance_type: mac_mini_m1
     scripts:
-      - name: Install VirtualBox (if Intel x64)
+      - name: Install VirtualBox
         script: |
           if [[ $(uname -m) == "x86_64" ]]; then
             brew install --cask virtualbox
