@@ -2,7 +2,11 @@ workflows:
   build-vagrant-box:
     name: Build Vagrant Box
     scripts:
-      - brew tap hashicorp/tap
-      - brew install hashicorp/tap/hashicorp-vagrant
-      - vagrant up
+      - name: Install Vagrant
+        script: |
+          brew tap hashicorp/tap
+          brew install hashicorp/tap/hashicorp-vagrant
+      - name: Install VirtualBox
+        script: brew install --cask virtualbox
+      # - vagrant up
       # - vagrant package --output my-box.box
