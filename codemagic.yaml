@@ -4,16 +4,7 @@ workflows:
     instance_type: mac_mini_m1
     scripts:
       - name: Install VirtualBox
-        script: |
-          if [[ $(uname -m) == "x86_64" ]]; then
-            brew install --cask virtualbox
-          else
-            wget "https://www.virtualbox.org/download/testcase/VirtualBox-7.0.97-163779-macOSArm64.dmg"
-            hdiutil attach VirtualBox-7.0.97-163779-macOSArm64.dmg
-            # ls /Volumes/
-            sudo installer -package /Volumes/VirtualBox/VirtualBox.pkg -target /
-            hdiutil detach /Volumes/VirtualBox
-          fi
+        script: brew install --cask virtualbox@beta
       - name: Install Vagrant
         script: |
           brew tap hashicorp/tap
